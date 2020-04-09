@@ -6,7 +6,7 @@ const RestaurantContainer = (props) => {
         <Fragment>
             <div className="restaurant-container">
                 {props.restaurants.map( rest => {
-                    return <RestaurantCard
+                    return <RestaurantCard restaurant={rest}
                     />
                 } )}
             </div>

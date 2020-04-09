@@ -1,9 +1,12 @@
 import React from 'react';
 
-const RestaurantCard = () => {
+const RestaurantCard = (props) => {
     return (
         <div className="restaurant-card">
-            test test test test
+            Name {props.restaurant.name}
+            Location {props.restaurant.location}
+            Price point {props.restaurant.price_point}
+            <img src={props.restaurant.img_url}/>
         </div>
     )
 }
