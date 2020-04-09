@@ -1,10 +1,14 @@
 import React from 'react';
 import RestaurantContainer from './containers/RestaurantContainer';
+import Navbar from './components/Navbar'
 
 function App() {
   
   return (
-    <RestaurantContainer restaurants={[0,1,2]} />
+    <>
+      <Navbar cart="I am a prop for navbar" />
+      <RestaurantContainer restaurants={[0,1,2]} />
+    </>
   )
 }
 
