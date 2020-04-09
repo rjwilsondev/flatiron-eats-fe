@@ -1,15 +1,19 @@
 import React, { Fragment } from 'react';
-import RestaurantCard from '../components/RestaurantCard'
+import RestaurantCard from '../components/RestaurantCard';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 
 const RestaurantContainer = (props) => {
     return (
         <Fragment>
-            <div className="restaurant-container">
-                {props.restaurants.map( rest => {
-                    return <RestaurantCard restaurant={rest}
-                    />
-                } )}
-            </div>
+            <Container>
+                <Row>
+                    {props.restaurants.map( rest => {
+                        return <RestaurantCard restaurant={rest}
+                        />
+                    } )}
+                </Row>
+            </Container>
         </Fragment>
     )
 }
