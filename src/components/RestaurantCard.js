@@ -4,12 +4,6 @@ import Button from 'react-bootstrap/Button';
 
 const RestaurantCard = (props) => {
     return (
-        // <div className="restaurant-card">
-        //     Name {props.restaurant.name}
-        //     Location {props.restaurant.location}
-        //     Price point {props.restaurant.price_point}
-        //     <img src={props.restaurant.img_url} className='restaurantImage'/>
-        // </div>
         <div>
             <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src={props.restaurant.img_url} />
