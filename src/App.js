@@ -13,7 +13,6 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-    console.log("Mounting...")
     fetch("http://localhost:3000/restaurants")
     .then(resp => resp.json())
     .then(json => {this.setState({restaurants: json})})
@@ -29,12 +28,16 @@ class App extends React.Component {
         <Route exact path="/restaurant/:id" render={(props) =>{
             console.log(props)
             let restaurantId = props.match.params.id
-            debugger
-            let foundrestaurant = this.state.restaurants.find(r => r.id === restaurantId)
-          return <FoodContainer restaurant={foundrestaurant} />
+            if (this.state.restaurants.length > 0) {
+              let foundrestaurant = this.state.restaurants.find(r => r.id == restaurantId)
+              console.log(foundrestaurant)
+            return <FoodContainer restaurant={foundrestaurant} />
+            }else {
+              return null
+            }
         }}/>
 
-        <Route path="/home" render={() => <RestaurantContainer restaurants={this.state.restaurants} />}/>
+        <Route exact path="/" render={() => <RestaurantContainer restaurants={this.state.restaurants} />}/>
 
       </Switch>
 

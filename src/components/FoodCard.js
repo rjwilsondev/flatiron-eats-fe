@@ -2,7 +2,7 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
-const foodCard = (props) => {
+const FoodCard = (props) => {
     return (
         <div>
             FOOD
@@ -10,4 +10,4 @@ const foodCard = (props) => {
     )
 }
 
-export default foodCard
+export default FoodCard

@@ -12,7 +12,7 @@ const header = (props) => {
             <Navbar.Brand href="#home">Navbar</Navbar.Brand>
             <Nav className="mr-auto">
             <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
+            <Nav.Link href="http://localhost:3001/restaurant/10">Features</Nav.Link>
             <Nav.Link href="#pricing">Pricing</Nav.Link>
             </Nav>
             <Form inline>
