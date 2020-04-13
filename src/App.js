@@ -34,7 +34,7 @@ class App extends React.Component {
     console.log("Checking out cart")
     debugger
     let cart = this.state.cart;
-    let user = this.state.currentUser;
+    let user = localStorage.getItem("user");
     fetch("http://localhost:3000/orders",
     {
       headers: {
@@ -53,8 +53,8 @@ class App extends React.Component {
     this.setState({
       currentUser: user
     })
-    localStorage.setItem("something",JSON.stringify(user))
-    console.log(localStorage.getItem("something"))
+    localStorage.setItem("user",JSON.stringify(user))
+    console.log(localStorage.getItem("user"))
   }
 
   render() {
