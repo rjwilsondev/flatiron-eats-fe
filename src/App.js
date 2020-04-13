@@ -9,7 +9,8 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      restaurants: []
+      restaurants: [],
+      currentUser: null
     }
   }
 
