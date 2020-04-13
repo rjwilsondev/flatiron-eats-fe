@@ -7,25 +7,32 @@ import Login from './components/Login'
 
 class App extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = {
       restaurants: [],
-      currentUser: null
-    }
+      currentUser: null,
+      cart: [],
+    };
   }
 
-  componentDidMount(){
+  componentDidMount() {
     fetch("http://localhost:3000/restaurants")
-    .then(resp => resp.json())
-    .then(json => {this.setState({restaurants: json})})
+      .then((resp) => resp.json())
+      .then((json) => {
+        this.setState({ restaurants: json });
+      });
   }
 
-  render(){
-    return (
-    <div className="App">
-      <Navbar cart="I am a prop for navbar" />
+  addItemToCart = (event,food) => {
+    event.preventDefault();
+    this.setState({cart: [...this.state.cart, food]})
+    console.log(this.state.cart.length)
+  };
 
-      <Switch>
+  render() {
+    return (
+      <div className="App">
+        <Navbar cart="I am a prop for navbar" />
 
         <Route exact path="/restaurant/:id" render={(props) =>{
             console.log(props)
@@ -42,12 +49,8 @@ class App extends React.Component {
         <Route exact path="/login" render={() => <Login/>} />
 
         <Route exact path="/" render={() => <RestaurantContainer restaurants={this.state.restaurants} />}/>
-
-      </Switch>
-
-      
-    </div>
-  )
+      </div>
+    );
   }
 }
 
