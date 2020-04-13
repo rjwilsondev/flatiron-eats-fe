@@ -13,7 +13,7 @@ const RestaurantCard = (props) => {
                 <div>Location: {props.restaurant.location}</div>
                 <div>Price point: {props.restaurant.price_point}</div>   
             </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+            <Button variant="primary" href={`http://localhost:3001/restaurant/${props.restaurant.id}`} >Order</Button>
             </Card.Body>
             </Card>
         </div>

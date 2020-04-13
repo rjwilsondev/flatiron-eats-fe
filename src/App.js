@@ -8,7 +8,8 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      restaurants: []
+      restaurants: [],
+      cart: []
     }
   }
 
@@ -27,9 +28,9 @@ class App extends React.Component {
 
         <Route exact path="/restaurant/:id" render={(props) =>{
             console.log(props)
-            let restaurantId = props.match.params.id
+            let restaurantId = parseInt(props.match.params.id)
             if (this.state.restaurants.length > 0) {
-              let foundrestaurant = this.state.restaurants.find(r => r.id == restaurantId)
+              let foundrestaurant = this.state.restaurants.find(r => r.id === restaurantId)
               console.log(foundrestaurant)
             return <FoodContainer restaurant={foundrestaurant} />
             }else {

@@ -11,6 +11,7 @@ const FoodCard = (props) => {
                     <Card.Title>{props.food.name}</Card.Title>
                     <Card.Text>Price: ${props.food.price}</Card.Text>
                     <Card.Text>{props.food.description}</Card.Text>
+                    <Button onClick={() => console.log("clicky click")} >Add to Cart</Button>
                     </Card.Body>
                 </Card>
         </div>
