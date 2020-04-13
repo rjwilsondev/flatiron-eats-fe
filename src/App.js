@@ -19,6 +19,11 @@ class App extends React.Component {
     .then(json => {this.setState({restaurants: json})})
   }
 
+  addItemToCart = (event) => {
+    event.preventDefault()
+    console.log("clicked add to cart button")
+  }
+
   render(){
     return (
     <div className="App">
@@ -32,7 +37,7 @@ class App extends React.Component {
             if (this.state.restaurants.length > 0) {
               let foundrestaurant = this.state.restaurants.find(r => r.id === restaurantId)
               console.log(foundrestaurant)
-            return <FoodContainer restaurant={foundrestaurant} />
+            return <FoodContainer restaurant={foundrestaurant} addItem = {this.addItemToCart} />
             }else {
               return null
             }

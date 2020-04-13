@@ -18,7 +18,7 @@ const FoodContainer = (props) => {
 
 const renderFoodCards = (props) => {
     return props.restaurant.items.map( item => {
-        return <FoodCard food={item}/>
+        return <FoodCard food={item} addItem={props.addItem} key={item.id}/>
     })}
 
 
