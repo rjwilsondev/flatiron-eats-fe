@@ -47,7 +47,7 @@ class App extends React.Component {
             if (this.state.restaurants.length > 0) {
               let foundrestaurant = this.state.restaurants.find(r => r.id == restaurantId)
               console.log(foundrestaurant)
-            return <FoodContainer restaurant={foundrestaurant} />
+            return <FoodContainer restaurant={foundrestaurant} addItem={this.addItemToCart} />
             }else {
               return null
             }
