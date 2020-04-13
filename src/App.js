@@ -26,8 +26,26 @@ class App extends React.Component {
   addItemToCart = (event,food) => {
     event.preventDefault();
     this.setState({cart: [...this.state.cart, food]})
-    console.log(this.state.cart.length)
+    console.log(`The cart now has ${this.state.cart.length} items.`)
   };
+
+  checkoutCart = (event) => {
+    event.preventDefault();
+    console.log("Checking out cart")
+    let cart = this.state.cart;
+    let user = this.state.currentUser;
+    fetch("http://localhost:3000/orders",
+    {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: "POST",
+      body: JSON.stringify({"cart": cart,"user": user})
+    })
+      .then(resp => resp.json())
+      .then(json => console.log(json))
+  }
 
   updateCurrentUser = (user) => {
     console.log(user)
@@ -42,12 +60,11 @@ class App extends React.Component {
         <Navbar cart="I am a prop for navbar" />
 
         <Route exact path="/restaurant/:id" render={(props) =>{
-            console.log(props)
+
             let restaurantId = props.match.params.id
             if (this.state.restaurants.length > 0) {
               let foundrestaurant = this.state.restaurants.find(r => r.id == restaurantId)
-              console.log(foundrestaurant)
-            return <FoodContainer restaurant={foundrestaurant} addItem={this.addItemToCart} />
+            return <FoodContainer restaurant={foundrestaurant} addItem={this.addItemToCart} checkout={this.checkoutCart} />
             }else {
               return null
             }
