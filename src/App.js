@@ -21,9 +21,10 @@ class App extends React.Component {
       });
   }
 
-  addItemToCart = (event) => {
+  addItemToCart = (event,food) => {
     event.preventDefault();
-    console.log("clicked add to cart button");
+    this.setState({cart: [...this.state.cart, food]})
+    console.log(this.state.cart.length)
   };
 
   render() {
@@ -36,13 +37,11 @@ class App extends React.Component {
             exact
             path="/restaurant/:id"
             render={(props) => {
-              console.log(props);
               let restaurantId = parseInt(props.match.params.id);
               if (this.state.restaurants.length > 0) {
                 let foundrestaurant = this.state.restaurants.find(
                   (r) => r.id === restaurantId
                 );
-                console.log(foundrestaurant);
                 return (
                   <FoodContainer
                     restaurant={foundrestaurant}
