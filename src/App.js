@@ -3,6 +3,7 @@ import {Route, Switch} from 'react-router-dom' // switch
 import RestaurantContainer from './containers/RestaurantContainer';
 import FoodContainer from './containers/FoodContainer';
 import Navbar from './components/Navbar'
+import Login from './components/Login'
 
 class App extends React.Component {
   constructor() {
@@ -36,6 +37,8 @@ class App extends React.Component {
               return null
             }
         }}/>
+
+        <Route exact path="/login" render={() => <Login/>} />
 
         <Route exact path="/" render={() => <RestaurantContainer restaurants={this.state.restaurants} />}/>
 
