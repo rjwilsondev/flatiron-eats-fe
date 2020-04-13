@@ -32,6 +32,7 @@ class App extends React.Component {
   checkoutCart = (event) => {
     event.preventDefault();
     console.log("Checking out cart")
+    debugger
     let cart = this.state.cart;
     let user = this.state.currentUser;
     fetch("http://localhost:3000/orders",
@@ -52,6 +53,8 @@ class App extends React.Component {
     this.setState({
       currentUser: user
     })
+    localStorage.setItem("something",JSON.stringify(user))
+    console.log(localStorage.getItem("something"))
   }
 
   render() {
