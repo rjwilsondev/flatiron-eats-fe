@@ -29,6 +29,13 @@ class App extends React.Component {
     console.log(this.state.cart.length)
   };
 
+  updateCurrentUser = (user) => {
+    console.log(user)
+    this.setState({
+      currentUser: user
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -46,7 +53,7 @@ class App extends React.Component {
             }
         }}/>
 
-        <Route exact path="/login" render={() => <Login/>} />
+        <Route exact path="/login" render={() => <Login addUser={this.updateCurrentUser}/>} />
 
         <Route exact path="/" render={() => <RestaurantContainer restaurants={this.state.restaurants} />}/>
       </div>
