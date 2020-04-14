@@ -4,6 +4,7 @@ import RestaurantContainer from './containers/RestaurantContainer';
 import FoodContainer from './containers/FoodContainer';
 import Navbar from './components/Navbar'
 import Login from './components/Login'
+import ProfileContainer from './containers/ProfileContainer' 
 
 class App extends React.Component {
   constructor() {
@@ -71,6 +72,8 @@ class App extends React.Component {
               return null
             }
         }}/>
+
+        <Route exact path="/profile" render={()  => <ProfileContainer />}  />
 
         <Route exact path="/login" render={() => <Login addUser={this.updateCurrentUser}/>} />
 
