@@ -26,15 +26,16 @@ class App extends React.Component {
   addItemToCart = (event,food) => {
     event.preventDefault();
     this.setState({cart: [...this.state.cart, food]})
-    console.log(`The cart now has ${this.state.cart.length} items.`)
+    setTimeout( () =>
+      console.log(`The cart now has ${this.state.cart.length} items.`)
+    ,50)
   };
 
   checkoutCart = (event) => {
     event.preventDefault();
     console.log("Checking out cart")
-    debugger
     let cart = this.state.cart;
-    let user = localStorage.getItem("user");
+    let user = localStorage.getItem("user_id");
     fetch("http://localhost:3000/orders",
     {
       headers: {
@@ -42,10 +43,8 @@ class App extends React.Component {
         'Content-Type': 'application/json'
       },
       method: "POST",
-      body: JSON.stringify({"cart": cart,"user": user})
+      body: JSON.stringify({"cart": cart,"user_id": user})
     })
-      .then(resp => resp.json())
-      .then(json => console.log(json))
   }
 
   updateCurrentUser = (user) => {
@@ -53,8 +52,8 @@ class App extends React.Component {
     this.setState({
       currentUser: user
     })
-    localStorage.setItem("user",JSON.stringify(user))
-    console.log(localStorage.getItem("user"))
+    localStorage.setItem("user_id",user.id)
+    console.log(localStorage.getItem("user_id"))
   }
 
   render() {
