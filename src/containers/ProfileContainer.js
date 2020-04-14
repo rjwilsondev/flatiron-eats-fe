@@ -5,10 +5,9 @@ import Row from "react-bootstrap/Row";
 // import { render } from "@testing-library/react";
 
 class Profile extends React.Component {
-
+    
     state =  {
         orders: [],
-        ordersTest: []
     }
 
     componentDidMount() {
@@ -19,7 +18,6 @@ class Profile extends React.Component {
             this.setState({ orders: json.orders });
           });
     }
-
 
 
     renderOrderCards() {

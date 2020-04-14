@@ -13,6 +13,7 @@ class App extends React.Component {
       restaurants: [],
       currentUser: null,
       cart: [],
+      searchTerm: ''
     };
   }
 
@@ -51,16 +52,24 @@ class App extends React.Component {
   updateCurrentUser = (user) => {
     console.log(user)
     this.setState({
-      currentUser: user
+      currentUser: user,
+      searchTerm: ''
     })
     localStorage.setItem("user_id",user.id)
     console.log(localStorage.getItem("user_id"))
   }
 
+  updateSearchTerm  = (event) =>{
+    console.log(event.target.value)
+    this.setState({
+      searchTerm: event.target.value
+    })
+  }
+
   render() {
     return (
       <div className="App">
-        <Navbar cart="I am a prop for navbar" />
+        <Navbar cart="I am a prop for navbar" updateSearchTerm={this.updateSearchTerm} searchTerm={this.state.searchTerm}/>
 
         <Route exact path="/restaurant/:id" render={(props) =>{
 
@@ -77,7 +86,7 @@ class App extends React.Component {
 
         <Route exact path="/login" render={() => <Login addUser={this.updateCurrentUser}/>} />
 
-        <Route exact path="/" render={() => <RestaurantContainer restaurants={this.state.restaurants} />}/>
+        <Route exact path="/" render={() => <RestaurantContainer restaurants={this.state.restaurants} searchTerm={this.state.searchTerm} />}/>
       </div>
     );
   }

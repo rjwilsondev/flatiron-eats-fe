@@ -16,7 +16,7 @@ const header = (props) => {
             <Nav.Link href="http://localhost:3001/login">Login</Nav.Link>
             </Nav>
             <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+            <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={props.updateSearchTerm} value={props.searchTerm}/>
             <Button variant="outline-info">Search</Button>
             </Form>
             </Navbar> 
