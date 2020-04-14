@@ -9,10 +9,8 @@ const RestaurantCard = (props) => {
         <Card.Img variant="top" src={props.restaurant.img_url} style={{width: "100%", height: "12rem", alignSelf: "center"}} />
         <Card.Body>
           <Card.Title>{props.restaurant.name}</Card.Title>
-          <Card.Text>
             <div>Location: {props.restaurant.location}</div>
             <div>Price point: {props.restaurant.price_point}</div>
-          </Card.Text>
           <Button
             variant="primary"
             href={`http://localhost:3001/restaurant/${props.restaurant.id}`}

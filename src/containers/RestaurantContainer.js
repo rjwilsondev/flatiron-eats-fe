@@ -9,8 +9,7 @@ const RestaurantContainer = (props) => {
 
     const renderRestaurants =  ()  => {
         return filteredRestaurants.map( rest => {
-            return <RestaurantCard restaurant={rest}
-            />
+            return <RestaurantCard restaurant={rest} key = {rest.id}/>
     })
 }
 
