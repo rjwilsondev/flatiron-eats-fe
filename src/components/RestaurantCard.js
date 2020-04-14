@@ -5,8 +5,8 @@ import Button from "react-bootstrap/Button";
 const RestaurantCard = (props) => {
   return (
     <div>
-      <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src={props.restaurant.img_url} />
+      <Card className="mx-3 " style={{ width: "18rem", height: "25rem"}}>
+        <Card.Img variant="top" src={props.restaurant.img_url} style={{width: "100%", height: "12rem", alignSelf: "center"}} />
         <Card.Body>
           <Card.Title>{props.restaurant.name}</Card.Title>
           <Card.Text>

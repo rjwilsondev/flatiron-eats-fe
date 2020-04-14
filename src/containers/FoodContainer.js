@@ -1,14 +1,14 @@
 import React, { Fragment } from "react";
 import FoodCard from "../components/FoodCard";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
+import CardColumns from "react-bootstrap/CardColumns";
 import Button from "react-bootstrap/Button";
 
 const FoodContainer = (props) => {
   return (
     <Fragment>
       <Container>
-        <Row>{props.restaurant ? renderFoodCards(props) : null}</Row>
+        <CardColumns>{props.restaurant ? renderFoodCards(props) : null}</CardColumns>
       </Container>
     <Button onClick={(e) => props.checkout(e)}>Checkout</Button>
     </Fragment>

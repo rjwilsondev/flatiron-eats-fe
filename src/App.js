@@ -69,7 +69,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Navbar cart="I am a prop for navbar" updateSearchTerm={this.updateSearchTerm} searchTerm={this.state.searchTerm}/>
+        <Navbar cart={this.state.cart} updateSearchTerm={this.updateSearchTerm} searchTerm={this.state.searchTerm}/>
 
         <Route exact path="/restaurant/:id" render={(props) =>{
 

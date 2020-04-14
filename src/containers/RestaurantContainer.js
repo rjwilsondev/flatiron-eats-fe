@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import RestaurantCard from '../components/RestaurantCard';
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
+import CardColumns from 'react-bootstrap/CardColumns';
 
 const RestaurantContainer = (props) => {
 
@@ -17,9 +17,9 @@ const RestaurantContainer = (props) => {
     return (
         <Fragment>
             <Container>
-                <Row>
+                <CardColumns>
                     {renderRestaurants()}
-                </Row>
+                </CardColumns>
             </Container>
         </Fragment>
     )
