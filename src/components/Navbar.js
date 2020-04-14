@@ -6,6 +6,9 @@ import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 
 const header = (props) => {
+
+    let cartCount = props.cart.count
+
     return(
         <div>        
             <Navbar bg="dark" variant="dark">
@@ -17,7 +20,8 @@ const header = (props) => {
             </Nav>
             <Form inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={props.updateSearchTerm} value={props.searchTerm}/>
-            <Button variant="outline-info">Search</Button>
+                {(props.cart.count > 0)  ?  <Button variant="outline-info">Cart: {cartCount}</Button> : <Button variant="outline-info">Cart: {cartCount}</Button>}
+            {/* <Button variant="outline-info">Cart: </Button> */}
             </Form>
             </Navbar> 
         </div>
