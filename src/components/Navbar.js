@@ -20,7 +20,8 @@ const header = (props) => {
             </Nav>
             <Form inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={props.updateSearchTerm} value={props.searchTerm}/>
-            <Button variant="outline-info">Cart: {props.cart.length}</Button>
+            <Button variant="outline-info">Checkout (items: {props.cart.length})</Button>
+            
             </Form>
             </Navbar> 
         </div>
