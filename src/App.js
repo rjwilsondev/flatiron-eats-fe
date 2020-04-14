@@ -66,6 +66,7 @@ class App extends React.Component {
     })
   }
 
+
   render() {
     return (
       <div className="App">
@@ -86,7 +87,9 @@ class App extends React.Component {
 
         <Route exact path="/login" render={() => <Login addUser={this.updateCurrentUser}/>} />
 
-        <Route exact path="/" render={() => <RestaurantContainer restaurants={this.state.restaurants} searchTerm={this.state.searchTerm} />}/>
+        <Route exact path="/" render={() => <RestaurantContainer restaurants={this.state.restaurants} searchTerm={this.state.searchTerm} />}/>  
+
+
       </div>
     );
   }
