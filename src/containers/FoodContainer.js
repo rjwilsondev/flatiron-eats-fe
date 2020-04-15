@@ -12,7 +12,6 @@ const FoodContainer = (props) => {
           {props.restaurant ? renderFoodCards(props) : null}
           </CardColumns>
       </Container>
-    <Button onClick={(e) => props.checkout(e)}>Checkout</Button>
     </Fragment>
   );
 };

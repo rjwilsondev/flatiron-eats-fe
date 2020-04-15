@@ -47,6 +47,8 @@ class App extends React.Component {
       method: "POST",
       body: JSON.stringify({"cart": cart,"user_id": user})
     })
+    this.setState({cart: []})
+    alert('Your order has been placed!')
   }
 
   updateCurrentUser = (user) => {
@@ -66,17 +68,18 @@ class App extends React.Component {
     })
   }
 
+
   render() {
     return (
       <div className="App">
-        <Navbar cart={this.state.cart} updateSearchTerm={this.updateSearchTerm} searchTerm={this.state.searchTerm}/>
+        <Navbar updateSearchTerm={this.updateSearchTerm} searchTerm={this.state.searchTerm} cart={this.state.cart} checkout={this.checkoutCart}/>
 
         <Route exact path="/restaurant/:id" render={(props) =>{
 
             let restaurantId = props.match.params.id
             if (this.state.restaurants.length > 0) {
               let foundrestaurant = this.state.restaurants.find(r => r.id == restaurantId)
-            return <FoodContainer restaurant={foundrestaurant} addItem={this.addItemToCart} checkout={this.checkoutCart} />
+            return <FoodContainer restaurant={foundrestaurant} addItem={this.addItemToCart} />
             }else {
               return null
             }
@@ -86,7 +89,9 @@ class App extends React.Component {
 
         <Route exact path="/login" render={() => <Login addUser={this.updateCurrentUser}/>} />
 
-        <Route exact path="/" render={() => <RestaurantContainer restaurants={this.state.restaurants} searchTerm={this.state.searchTerm} />}/>
+        <Route exact path="/" render={() => <RestaurantContainer restaurants={this.state.restaurants} searchTerm={this.state.searchTerm} />}/>  
+
+
       </div>
     );
   }
