@@ -11,8 +11,8 @@ class Profile extends React.Component {
     }
 
     componentDidMount() {
-        let user = JSON.parse(localStorage.user)
-        fetch(`http://localhost:3000/users/${user.id}`)
+        let user = JSON.parse(localStorage.user_id)
+        fetch(`http://localhost:3000/users/${user}`)
           .then((resp) => resp.json())
           .then((json) => {
             this.setState({ orders: json.orders });
@@ -21,9 +21,14 @@ class Profile extends React.Component {
 
 
     renderOrderCards() {
-      return this.state.orders.map((order) => {
-        return <OrderCard order={order} key={order.id} />;
-      });
+      console.log(this.state.orders)
+      if (this.state.orders){
+         return this.state.orders.map((order) => {
+          return <OrderCard order={order} key={order.id} />;
+        });
+      } else {
+        return "You have no orders yet bro."
+      }
     };
 
   render() {
