@@ -1,10 +1,11 @@
 import React from 'react';
-import {Route, Switch} from 'react-router-dom' // switch
+import {Route, Switch, Redirect} from 'react-router-dom' // switch
 import RestaurantContainer from './containers/RestaurantContainer';
 import FoodContainer from './containers/FoodContainer';
 import Navbar from './components/Navbar'
 import Login from './components/Login'
 import ProfileContainer from './containers/ProfileContainer' 
+
 
 class App extends React.Component {
   constructor() {
@@ -75,7 +76,6 @@ class App extends React.Component {
         <Navbar updateSearchTerm={this.updateSearchTerm} searchTerm={this.state.searchTerm} cart={this.state.cart} checkout={this.checkoutCart}/>
 
         <Route exact path="/restaurant/:id" render={(props) =>{
-
             let restaurantId = props.match.params.id
             if (this.state.restaurants.length > 0) {
               let foundrestaurant = this.state.restaurants.find(r => r.id == restaurantId)
@@ -87,7 +87,7 @@ class App extends React.Component {
 
         <Route exact path="/profile" render={()  => <ProfileContainer />}  />
 
-        <Route exact path="/login" render={() => <Login addUser={this.updateCurrentUser}/>} />
+        <Route exact path="/login"> {this.state.currentUser ? <Redirect to='/' /> : <Login addUser={this.updateCurrentUser}/>} </Route> 
 
         <Route exact path="/" render={() => <RestaurantContainer restaurants={this.state.restaurants} searchTerm={this.state.searchTerm} />}/>  
 
