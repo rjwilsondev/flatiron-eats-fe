@@ -15,7 +15,7 @@ const RestaurantCard = (props) => {
             <div>Price point: {dollarSigns(props.restaurant.price_point)}</div>
           <Button
             variant="primary"
-            href={`https://flatiron-eat.herokuapp.com/restaurant/${props.restaurant.id}`}
+            href={`https://master.dv4efowo47bdi.amplifyapp.com/restaurant/${props.restaurant.id}`}
           >
             Order
           </Button>

@@ -12,11 +12,11 @@ const header = (props) => {
     return(
         <div>        
             <Navbar bg="dark" variant="dark">
-            <Navbar.Brand href="https://flatiron-eat.herokuapp.com/">FlatironEats</Navbar.Brand>
+            <Navbar.Brand href="https://master.dv4efowo47bdi.amplifyapp.com/">FlatironEats</Navbar.Brand>
             <Nav className="mr-auto">
-            <Nav.Link href="https://flatiron-eat.herokuapp.com/">Restaurants</Nav.Link>
-            <Nav.Link href="https://flatiron-eat.herokuapp.com/profile">Past Orders</Nav.Link>
-            <Nav.Link href="https://flatiron-eat.herokuapp.com/login">Login</Nav.Link>
+            <Nav.Link href="https://master.dv4efowo47bdi.amplifyapp.com/">Restaurants</Nav.Link>
+            <Nav.Link href="https://master.dv4efowo47bdi.amplifyapp.com/profile">Past Orders</Nav.Link>
+            <Nav.Link href="https://master.dv4efowo47bdi.amplifyapp.com/login">Login</Nav.Link>
             </Nav>
             <Form inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange={props.updateSearchTerm} value={props.searchTerm}/>
