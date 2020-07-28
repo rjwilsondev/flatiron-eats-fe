@@ -10,7 +10,7 @@ const FoodContainer = (props) => {
       <Container>
         <CardColumns>
           {props.restaurant ? renderFoodCards(props) : null}
-          </CardColumns>
+        </CardColumns>
       </Container>
     </Fragment>
   );

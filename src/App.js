@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Switch, Redirect} from 'react-router-dom' // switch
+import {Route, Redirect} from 'react-router-dom' // switch
 import RestaurantContainer from './containers/RestaurantContainer';
 import FoodContainer from './containers/FoodContainer';
 import Navbar from './components/Navbar'
@@ -19,7 +19,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/restaurants")
+    fetch("https://flatiron-eats-backend.herokuapp.com/restaurants")
       .then((resp) => resp.json())
       .then((json) => {
         this.setState({ restaurants: json });
@@ -39,7 +39,7 @@ class App extends React.Component {
     console.log("Checking out cart")
     let cart = this.state.cart;
     let user = localStorage.getItem("user_id");
-    fetch("http://localhost:3000/orders",
+    fetch("https://flatiron-eats-backend.herokuapp.com/orders",
     {
       headers: {
         'Accept': 'application/json',

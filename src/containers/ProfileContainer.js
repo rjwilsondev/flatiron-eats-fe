@@ -12,7 +12,7 @@ class Profile extends React.Component {
 
     componentDidMount() {
         let user = JSON.parse(localStorage.user_id)
-        fetch(`http://localhost:3000/users/${user}`)
+        fetch(`https://flatiron-eats-backend.herokuapp.com/users/${user}`)
           .then((resp) => resp.json())
           .then((json) => {
             this.setState({ orders: json.orders });
@@ -27,7 +27,7 @@ class Profile extends React.Component {
           return <OrderCard order={order} key={order.id} />;
         });
       } else {
-        return "You have no orders yet bro."
+        return "Sorry You have no past orders."
       }
     };
 
